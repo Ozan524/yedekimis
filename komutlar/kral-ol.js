@@ -1,0 +1,56 @@
+const Discord = require('discord.js');
+
+const ayarlar = require('../ayarlar.json');
+
+exports.run = (client, message, params) => {
+
+    if (!message.guild) {
+
+    const ozelmesajuyari = new Discord.MessageEmbed()
+
+    .setColor(0xFF0000)
+
+    .setTimestamp()
+
+    .setAuthor(message.author.username, message.author.avatarURL({dynamic:true}))
+
+    .addField('**Eğlence Komutları Özel Mesajlarda Kullanılamaz!**')
+
+    return message.author.send(ozelmesajuyari); }
+
+    if (message.channel.type !== 'dm') {
+
+      const sunucubilgi = new Discord.MessageEmbed()
+
+    .setAuthor(' Yeni Kralımız = ' + message.author.username + ' Adlı Kişi Oldu. \n En Büyük Kral, Bizim Kral')
+
+    .setColor(3447003)
+
+    .setTimestamp()
+
+    .setDescription('')
+
+    .setImage(`https://media.giphy.com/media/F0uvYzyr2a7Li/giphy.gif`)
+
+    return message.channel.send(sunucubilgi);
+
+    }
+
+};
+
+exports.conf = {
+
+  enabled: true,
+
+  guildOnly: false,
+
+  aliases: [],
+
+  permLevel: 0
+
+};
+
+exports.help = {
+  name: 'kral-ol',
+  usage: 'kral olursun'
+}
